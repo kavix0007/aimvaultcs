@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIMVAULT — CS2 Crosshairs, Pro Settings & Gaming Tools</title>
-<meta name="description" content="Browse professional CS2 crosshairs, build your own with a live generator, compare pro player settings, and use free gaming calculators. No installs, no accounts.">
+<title>AIMVAULT — CS2 Crosshairs & Gaming Tools</title>
+<meta name="description" content="Browse professional CS2 crosshairs, build your own with a live generator, and use free gaming calculators. No installs, no accounts.">
 <link rel="canonical" href="https://aimvaultcs.online/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="AIMVAULT — CS2 Crosshairs, Pro Settings & Gaming Tools">
-<meta property="og:description" content="Browse professional CS2 crosshairs, build your own with a live generator, compare pro player settings, and use free gaming calculators.">
+<meta property="og:title" content="AIMVAULT — CS2 Crosshairs & Gaming Tools">
+<meta property="og:description" content="Browse professional CS2 crosshairs, build your own with a live generator, and use free gaming calculators.">
 <meta property="og:url" content="https://aimvaultcs.online/">
 <meta property="og:image" content="https://aimvaultcs.online/assets/images/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,7 @@
   "@type": "WebSite",
   "name": "AIMVAULT",
   "url": "https://aimvaultcs.online/",
-  "description": "CS2 crosshairs, pro settings, and gaming tools.",
+  "description": "CS2 crosshairs and gaming tools.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://aimvaultcs.online/crosshairs.html?q={search_term_string}",
@@ -44,14 +44,13 @@
       </svg>
       <span class="brand-text">
         <span class="brand-name">AIM<span>VAULT</span></span>
-        <span class="brand-tagline">CS2 Crosshairs &amp; Pro Settings</span>
+        <span class="brand-tagline">CS2 Crosshairs &amp; Gaming Tools</span>
       </span>
     </a>
     <nav class="main-nav" id="main-nav" aria-label="Primary">
       <a href="index.html" data-page="index.html">Home</a>
       <a href="crosshairs.html" data-page="crosshairs.html">Crosshairs</a>
       <a href="generator.html" data-page="generator.html">Generator</a>
-      <a href="pro-settings.html" data-page="pro-settings.html">Pro Settings</a>
       <a href="tools.html" data-page="tools.html">Gaming Tools</a>
       <a href="guides.html" data-page="guides.html">Guides</a>
     </nav>
@@ -70,21 +69,12 @@
     <div class="container">
       <div>
         <span class="hero-eyebrow">400+ Copies Today</span>
-        <h1>CS2 Crosshairs, Pro Settings &amp; Gaming Tools</h1>
+        <h1>CS2 Crosshairs &amp; Gaming Tools</h1>
         <p class="hero-desc">Find professional CS2 crosshairs, copy proven settings, and build your own setup with a live generator — no downloads, no sign-up.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="crosshairs.html">Browse Crosshairs</a>
           <a class="btn btn-secondary" href="generator.html">Open Generator</a>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><strong id="stat-crosshairs">—</strong><span>Crosshairs tracked</span></div>
-          <div class="hero-stat"><strong id="stat-pros">—</strong><span>Pro players</span></div>
-          <div class="hero-stat"><strong id="stat-copies">—</strong><span>Community copies</span></div>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <canvas data-crosshair='{"color":"cyan","size":1.5,"gap":-3,"thickness":0.5,"outline":true,"outlineThickness":1,"dot":false,"style":4}'></canvas>
-        <div class="hero-visual-tag"><span>LIVE PREVIEW</span><span>cl_crosshairstyle 4</span></div>
       </div>
     </div>
   </section>
@@ -173,7 +163,7 @@
         </div>
         <div class="content-block">
           <h3>Professional CS2 crosshairs</h3>
-          <p>Pro players tend to favor compact, high-contrast crosshairs with a dark outline for consistency across lighting conditions. Browsing the <a href="pro-settings.html">Pro Settings</a> database is a good way to see common patterns by role, not a guarantee any single setup will suit your own sensitivity or monitor.</p>
+          <p>Pro players tend to favor compact, high-contrast crosshairs with a dark outline for consistency across lighting conditions. Filtering the <a href="crosshairs.html">database by "Pros"</a> is a good way to see common patterns by role, not a guarantee any single setup will suit your own sensitivity or monitor.</p>
         </div>
         <div class="content-block">
           <h3>Crosshair settings explained</h3>
@@ -196,7 +186,6 @@
         <h4>Explore</h4>
         <a href="crosshairs.html">Crosshair Database</a>
         <a href="generator.html">Crosshair Generator</a>
-        <a href="pro-settings.html">Pro Settings</a>
         <a href="tools.html">Gaming Tools</a>
       </div>
       <div class="footer-col">
@@ -224,12 +213,6 @@
   const A = window.AIMVAULT;
   const json = await A.fetchJSON('data/crosshairs.json');
   const data = (json && json.crosshairs) || [];
-
-  // Hero stats
-  document.getElementById('stat-crosshairs').textContent = data.length + '+';
-  document.getElementById('stat-pros').textContent = data.filter(c => c.category === 'pro').length;
-  const totalCopies = data.reduce((sum, c) => sum + c.copies, 0);
-  document.getElementById('stat-copies').textContent = A.formatCount(totalCopies) + '+';
 
   // Recently Added carousel
   const track = document.getElementById('recent-track');
