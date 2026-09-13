@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" role="img" aria-label="AIMVAULT logo">
+  <path d="M20 2L36 10V22C36 30.8 29.2 37.6 20 39C10.8 37.6 4 30.8 4 22V10L20 2Z" fill="url(#aimvault-g1)"/>
+  <path d="M20 11V16M20 24V29M11 20H16M24 20H29" stroke="#0d1014" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="20" cy="20" r="2.4" fill="#0d1014"/>
+  <defs>
+    <linearGradient id="aimvault-g1" x1="4" y1="2" x2="36" y2="39" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e5a400"/>
+      <stop offset="1" stop-color="#4b8cff"/>
+    </linearGradient>
+  </defs>
+</svg>

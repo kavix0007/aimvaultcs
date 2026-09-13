@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIMVAULT — CS2 Crosshairs, Pro Settings & Gaming Tools</title>
+<meta name="description" content="Browse professional CS2 crosshairs, build your own with a live generator, compare pro player settings, and use free gaming calculators. No installs, no accounts.">
+<link rel="canonical" href="https://aimvaultcs.online/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIMVAULT — CS2 Crosshairs, Pro Settings & Gaming Tools">
+<meta property="og:description" content="Browse professional CS2 crosshairs, build your own with a live generator, compare pro player settings, and use free gaming calculators.">
+<meta property="og:url" content="https://aimvaultcs.online/">
+<meta property="og:image" content="https://aimvaultcs.online/assets/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#15181d">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AIMVAULT",
+  "url": "https://aimvaultcs.online/",
+  "description": "CS2 crosshairs, pro settings, and gaming tools.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://aimvaultcs.online/crosshairs.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="AIMVAULT home">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 2L36 10V22C36 30.8 29.2 37.6 20 39C10.8 37.6 4 30.8 4 22V10L20 2Z" fill="url(#g1)"/>
+        <path d="M20 11V16M20 24V29M11 20H16M24 20H29" stroke="#0d1014" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="2.4" fill="#0d1014"/>
+        <defs><linearGradient id="g1" x1="4" y1="2" x2="36" y2="39" gradientUnits="userSpaceOnUse"><stop stop-color="#e5a400"/><stop offset="1" stop-color="#4b8cff"/></linearGradient></defs>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">AIM<span>VAULT</span></span>
+        <span class="brand-tagline">CS2 Crosshairs &amp; Pro Settings</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="crosshairs.html" data-page="crosshairs.html">Crosshairs</a>
+      <a href="generator.html" data-page="generator.html">Generator</a>
+      <a href="pro-settings.html" data-page="pro-settings.html">Pro Settings</a>
+      <a href="tools.html" data-page="tools.html">Gaming Tools</a>
+      <a href="guides.html" data-page="guides.html">Guides</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm" href="generator.html">Open Generator</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <span class="hero-eyebrow">400+ Copies Today</span>
+        <h1>CS2 Crosshairs, Pro Settings &amp; Gaming Tools</h1>
+        <p class="hero-desc">Find professional CS2 crosshairs, copy proven settings, and build your own setup with a live generator — no downloads, no sign-up.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="crosshairs.html">Browse Crosshairs</a>
+          <a class="btn btn-secondary" href="generator.html">Open Generator</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong id="stat-crosshairs">—</strong><span>Crosshairs tracked</span></div>
+          <div class="hero-stat"><strong id="stat-pros">—</strong><span>Pro players</span></div>
+          <div class="hero-stat"><strong id="stat-copies">—</strong><span>Community copies</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <canvas data-crosshair='{"color":"cyan","size":1.5,"gap":-3,"thickness":0.5,"outline":true,"outlineThickness":1,"dot":false,"style":4}'></canvas>
+        <div class="hero-visual-tag"><span>LIVE PREVIEW</span><span>cl_crosshairstyle 4</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Recently Added</h2>
+          <p>The newest crosshairs added to the database.</p>
+        </div>
+        <a class="btn btn-secondary btn-sm" href="crosshairs.html">View all</a>
+      </div>
+      <div class="carousel-wrap">
+        <button class="carousel-nav prev" id="carousel-prev" aria-label="Scroll left">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="carousel-track" id="recent-track"></div>
+        <button class="carousel-nav next" id="carousel-next" aria-label="Scroll right">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Popular Crosshairs</h2>
+          <p>Search and filter the collection right from the homepage.</p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-field">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="search" id="home-search" placeholder="Search by player, team, or crosshair name…" aria-label="Search crosshairs">
+        </div>
+        <div class="sort-field">
+          <label for="home-sort">Sort</label>
+          <select id="home-sort">
+            <option value="recent">Recently Added</option>
+            <option value="copied">Most Copied</option>
+            <option value="alpha">Alphabetical</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter-pills" id="home-filters" style="margin-bottom:24px;">
+        <button class="filter-pill is-active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="riflers">Riflers</button>
+        <button class="filter-pill" data-filter="awpers">AWPers</button>
+        <button class="filter-pill" data-filter="pros">Pros</button>
+        <button class="filter-pill" data-filter="popular">Popular</button>
+        <button class="filter-pill" data-filter="recent">Recently Added</button>
+      </div>
+
+      <p class="results-meta" id="home-results-meta"></p>
+      <div class="card-grid" id="home-grid"></div>
+      <div class="empty-state" id="home-empty" hidden>
+        <h3>No crosshairs match that search</h3>
+        <p>Try a different player name, team, or clear your filters.</p>
+      </div>
+      <div class="load-more-wrap">
+        <button class="btn btn-ghost" id="home-load-more" style="display:none;">Load more crosshairs</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Crosshair Knowledge Base</h2>
+          <p>A quick primer before you copy a setup or build your own.</p>
+        </div>
+      </div>
+      <div class="content-grid">
+        <div class="content-block">
+          <h3>What is a CS2 crosshair?</h3>
+          <p>Your crosshair is the fixed reference point you aim with in Counter-Strike 2. Unlike a mouse cursor, it stays centered on your screen while the world moves around it, so its color, size, and shape directly affect how quickly you can confirm a shot is lined up.</p>
+        </div>
+        <div class="content-block">
+          <h3>How to choose a crosshair</h3>
+          <p>Start with visibility: a crosshair only helps if you can see it instantly against every map background. From there, tune size and gap for your role — smaller and tighter for long-range precision, slightly larger for close-range tracking — using the <a href="generator.html">generator</a> to preview changes live.</p>
+        </div>
+        <div class="content-block">
+          <h3>Professional CS2 crosshairs</h3>
+          <p>Pro players tend to favor compact, high-contrast crosshairs with a dark outline for consistency across lighting conditions. Browsing the <a href="pro-settings.html">Pro Settings</a> database is a good way to see common patterns by role, not a guarantee any single setup will suit your own sensitivity or monitor.</p>
+        </div>
+        <div class="content-block">
+          <h3>Crosshair settings explained</h3>
+          <p>Color, size, gap, thickness, outline, and center dot each change how your crosshair reads on screen. Read our guide on <a href="guide.html?slug=how-cs2-crosshair-gap-works">how crosshair gap works</a> for a deeper breakdown of the setting players misunderstand most.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-disclaimer">Crosshair and settings data on AIMVAULT is community-tracked for demonstration purposes and is not verified against any player's current or official configuration. Team names, roles, and settings may be outdated — always treat entries as a starting point, not a confirmed live setup.</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p>CS2 crosshairs, pro settings, and gaming tools — built for players who want to tune their setup, not guess at it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="crosshairs.html">Crosshair Database</a>
+        <a href="generator.html">Crosshair Generator</a>
+        <a href="pro-settings.html">Pro Settings</a>
+        <a href="tools.html">Gaming Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="guides.html">All Guides</a>
+        <a href="guide.html?slug=best-cs2-crosshair-settings">Best Crosshair Settings</a>
+        <a href="guide.html?slug=how-to-copy-a-cs2-crosshair">How to Copy a Crosshair</a>
+      </div>
+      <div class="footer-col">
+        <h4>AIMVAULT</h4>
+        <span>aimvaultcs.online</span>
+        <span>Not affiliated with Valve Corp.</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="footer-year"></span> AIMVAULT. All rights reserved.</span>
+      <span>CS2 and Counter-Strike are trademarks of Valve Corporation.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+(async function () {
+  const A = window.AIMVAULT;
+  const json = await A.fetchJSON('data/crosshairs.json');
+  const data = (json && json.crosshairs) || [];
+
+  // Hero stats
+  document.getElementById('stat-crosshairs').textContent = data.length + '+';
+  document.getElementById('stat-pros').textContent = data.filter(c => c.category === 'pro').length;
+  const totalCopies = data.reduce((sum, c) => sum + c.copies, 0);
+  document.getElementById('stat-copies').textContent = A.formatCount(totalCopies) + '+';
+
+  // Recently Added carousel
+  const track = document.getElementById('recent-track');
+  const recent = data.slice().sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)).slice(0, 10);
+  recent.forEach((entry) => track.appendChild(A.createCrosshairCard(entry)));
+
+  document.getElementById('carousel-prev').addEventListener('click', () => {
+    track.scrollBy({ left: -460, behavior: 'smooth' });
+  });
+  document.getElementById('carousel-next').addEventListener('click', () => {
+    track.scrollBy({ left: 460, behavior: 'smooth' });
+  });
+
+  // Popular / browsable grid
+  A.initCrosshairBrowser({
+    gridEl: document.getElementById('home-grid'),
+    emptyEl: document.getElementById('home-empty'),
+    resultsMetaEl: document.getElementById('home-results-meta'),
+    searchInput: document.getElementById('home-search'),
+    filterPills: Array.from(document.querySelectorAll('#home-filters .filter-pill')),
+    sortSelect: document.getElementById('home-sort'),
+    loadMoreBtn: document.getElementById('home-load-more'),
+    data: data,
+    pageSize: 12
+  });
+})();
+</script>
+</body>
+</html>

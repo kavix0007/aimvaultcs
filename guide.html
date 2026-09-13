@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Guide | AIMVAULT</title>
+<meta name="description" id="page-description" content="A practical CS2 crosshair guide from AIMVAULT.">
+<link rel="canonical" id="page-canonical" href="https://aimvaultcs.online/guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" id="og-title" content="Guide | AIMVAULT">
+<meta property="og:description" id="og-description" content="A practical CS2 crosshair guide from AIMVAULT.">
+<meta property="og:image" content="https://aimvaultcs.online/assets/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#15181d">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="AIMVAULT home">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 2L36 10V22C36 30.8 29.2 37.6 20 39C10.8 37.6 4 30.8 4 22V10L20 2Z" fill="url(#g1)"/>
+        <path d="M20 11V16M20 24V29M11 20H16M24 20H29" stroke="#0d1014" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="2.4" fill="#0d1014"/>
+        <defs><linearGradient id="g1" x1="4" y1="2" x2="36" y2="39" gradientUnits="userSpaceOnUse"><stop stop-color="#e5a400"/><stop offset="1" stop-color="#4b8cff"/></linearGradient></defs>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">AIM<span>VAULT</span></span>
+        <span class="brand-tagline">CS2 Crosshairs &amp; Pro Settings</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="crosshairs.html" data-page="crosshairs.html">Crosshairs</a>
+      <a href="generator.html" data-page="generator.html">Generator</a>
+      <a href="pro-settings.html" data-page="pro-settings.html">Pro Settings</a>
+      <a href="tools.html" data-page="tools.html">Gaming Tools</a>
+      <a href="guides.html" data-page="guides.html">Guides</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm" href="generator.html">Open Generator</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" id="breadcrumbs" style="padding-top:20px;">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="guides.html">Guides</a><span class="sep">/</span>
+      <span class="current" id="breadcrumb-current">…</span>
+    </nav>
+  </div>
+
+  <div class="container" style="padding-bottom:64px;">
+    <article class="guide-article" id="guide-root"></article>
+
+    <div class="empty-state" id="guide-not-found" hidden>
+      <h3>Guide not found</h3>
+      <p>That guide might have been renamed or removed.</p>
+      <div style="margin-top:16px;"><a class="btn btn-primary btn-sm" href="guides.html">Back to Guides</a></div>
+    </div>
+
+    <div class="related-guides" id="related-guides" hidden>
+      <h2 style="font-family:var(--font-display);">More Guides</h2>
+      <div class="guides-grid" id="related-guides-grid"></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-disclaimer">Crosshair and settings data on AIMVAULT is community-tracked for demonstration purposes and is not verified against any player's current or official configuration.</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p>CS2 crosshairs, pro settings, and gaming tools — built for players who want to tune their setup, not guess at it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="crosshairs.html">Crosshair Database</a>
+        <a href="generator.html">Crosshair Generator</a>
+        <a href="pro-settings.html">Pro Settings</a>
+        <a href="tools.html">Gaming Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="guides.html">All Guides</a>
+      </div>
+      <div class="footer-col">
+        <h4>AIMVAULT</h4>
+        <span>aimvaultcs.online</span>
+        <span>Not affiliated with Valve Corp.</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="footer-year"></span> AIMVAULT. All rights reserved.</span>
+      <span>CS2 and Counter-Strike are trademarks of Valve Corporation.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+(async function () {
+  const A = window.AIMVAULT;
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('slug');
+
+  const json = await A.fetchJSON('data/guides.json');
+  const guides = (json && json.guides) || [];
+  const guide = guides.find((g) => g.slug === slug);
+
+  if (!guide) {
+    document.getElementById('guide-not-found').hidden = false;
+    document.getElementById('breadcrumb-current').textContent = 'Not found';
+    return;
+  }
+
+  document.getElementById('page-title').textContent = `${guide.title} | AIMVAULT`;
+  document.getElementById('page-description').setAttribute('content', guide.excerpt);
+  document.getElementById('og-title').setAttribute('content', `${guide.title} | AIMVAULT`);
+  document.getElementById('og-description').setAttribute('content', guide.excerpt);
+  document.getElementById('page-canonical').setAttribute('href', `https://aimvaultcs.online/guide.html?slug=${guide.slug}`);
+  document.getElementById('breadcrumb-current').textContent = guide.title;
+
+  const root = document.getElementById('guide-root');
+  root.appendChild(A.el('h1', {}, [guide.title]));
+  root.appendChild(A.el('div', { class: 'guide-article-meta' }, [
+    A.el('span', {}, [A.timeAgo(guide.dateAdded)]),
+    A.el('span', {}, [guide.readTime])
+  ]));
+
+  guide.body.forEach((block) => {
+    if (block.type === 'h2') root.appendChild(A.el('h2', {}, [block.text]));
+    else root.appendChild(A.el('p', {}, [block.text]));
+  });
+
+  const related = guides.filter((g) => g.slug !== guide.slug).slice(0, 3);
+  if (related.length) {
+    const relatedSection = document.getElementById('related-guides');
+    const relatedGrid = document.getElementById('related-guides-grid');
+    related.forEach((g) => {
+      relatedGrid.appendChild(A.el('a', { class: 'guide-card', href: `guide.html?slug=${encodeURIComponent(g.slug)}`, style: 'display:block;' }, [
+        A.el('h3', {}, [g.title]),
+        A.el('p', {}, [g.excerpt])
+      ]));
+    });
+    relatedSection.hidden = false;
+  }
+})();
+</script>
+</body>
+</html>

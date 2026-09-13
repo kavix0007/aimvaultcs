@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Crosshair Generator — Build &amp; Share Your Own | AIMVAULT</title>
+<meta name="description" content="Build a custom CS2 crosshair with a live preview. Adjust color, size, gap, thickness, outline and dot, then copy the console command or share a link.">
+<link rel="canonical" href="https://aimvaultcs.online/generator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CS2 Crosshair Generator | AIMVAULT">
+<meta property="og:description" content="Build a custom CS2 crosshair with a live preview and copy the console command instantly.">
+<meta property="og:url" content="https://aimvaultcs.online/generator.html">
+<meta property="og:image" content="https://aimvaultcs.online/assets/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#15181d">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="AIMVAULT home">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 2L36 10V22C36 30.8 29.2 37.6 20 39C10.8 37.6 4 30.8 4 22V10L20 2Z" fill="url(#g1)"/>
+        <path d="M20 11V16M20 24V29M11 20H16M24 20H29" stroke="#0d1014" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="2.4" fill="#0d1014"/>
+        <defs><linearGradient id="g1" x1="4" y1="2" x2="36" y2="39" gradientUnits="userSpaceOnUse"><stop stop-color="#e5a400"/><stop offset="1" stop-color="#4b8cff"/></linearGradient></defs>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">AIM<span>VAULT</span></span>
+        <span class="brand-tagline">CS2 Crosshairs &amp; Pro Settings</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="crosshairs.html" data-page="crosshairs.html">Crosshairs</a>
+      <a href="generator.html" data-page="generator.html">Generator</a>
+      <a href="pro-settings.html" data-page="pro-settings.html">Pro Settings</a>
+      <a href="tools.html" data-page="tools.html">Gaming Tools</a>
+      <a href="guides.html" data-page="guides.html">Guides</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm" href="crosshairs.html">Browse Crosshairs</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" style="padding-top:20px;">
+      <a href="index.html">Home</a><span class="sep">/</span><span class="current">Generator</span>
+    </nav>
+  </div>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>CS2 Crosshair Generator</h1>
+      <p>Every control updates the preview instantly. When it feels right, copy the console command or share a link that reproduces this exact crosshair.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="generator-layout">
+
+        <div class="gen-stage-panel">
+          <div class="gen-stage preview-stage" id="gen-stage" data-bg="grid">
+            <canvas id="gen-canvas"></canvas>
+          </div>
+          <div class="bg-selector">
+            <button class="bg-swatch is-active" data-bg="grid">Range</button>
+            <button class="bg-swatch" data-bg="dust">Dust</button>
+            <button class="bg-swatch" data-bg="mirage">Mirage</button>
+            <button class="bg-swatch" data-bg="smoke">Smoke</button>
+            <button class="bg-swatch" data-bg="dark">Dark</button>
+          </div>
+          <h3 style="margin-top:24px;">CS2 Console Command</h3>
+          <pre class="command-block" id="gen-command-block"></pre>
+        </div>
+
+        <div class="gen-panel">
+          <div class="gen-group">
+            <div class="gen-label-row"><label>Color</label></div>
+            <div class="color-swatches">
+              <button class="color-swatch" data-color="green" style="background:#39ff6a" title="Green"></button>
+              <button class="color-swatch" data-color="cyan" style="background:#39e0ff" title="Cyan"></button>
+              <button class="color-swatch" data-color="blue" style="background:#4b8cff" title="Blue"></button>
+              <button class="color-swatch" data-color="yellow" style="background:#fff23b" title="Yellow"></button>
+              <button class="color-swatch" data-color="red" style="background:#ff4b4b" title="Red"></button>
+              <button class="color-swatch" data-color="white" style="background:#ffffff" title="White"></button>
+              <button class="color-swatch" data-color="pink" style="background:#ff5cc9" title="Pink"></button>
+              <button class="color-swatch" data-color="orange" style="background:#e5a400" title="Gold"></button>
+              <button class="color-swatch" data-color="purple" style="background:#b26bff" title="Purple"></button>
+            </div>
+          </div>
+
+          <div class="gen-group">
+            <div class="gen-label-row"><label for="ctl-size">Size</label><span class="gen-value" id="val-size">2</span></div>
+            <input type="range" id="ctl-size" min="0" max="6" step="0.5" value="2">
+          </div>
+
+          <div class="gen-group">
+            <div class="gen-label-row"><label for="ctl-gap">Gap</label><span class="gen-value" id="val-gap">-3</span></div>
+            <input type="range" id="ctl-gap" min="-5" max="3" step="0.5" value="-3">
+          </div>
+
+          <div class="gen-group">
+            <div class="gen-label-row"><label for="ctl-thickness">Thickness</label><span class="gen-value" id="val-thickness">1</span></div>
+            <input type="range" id="ctl-thickness" min="0.5" max="3" step="0.1" value="1">
+          </div>
+
+          <div class="gen-group">
+            <div class="toggle-row">
+              <label for="ctl-outline">Outline</label>
+              <button class="switch is-on" id="ctl-outline" type="button" role="switch" aria-checked="true" aria-label="Toggle outline"></button>
+            </div>
+            <div class="outline-thickness-group" style="margin-top:12px;">
+              <div class="gen-label-row"><label for="ctl-outline-thickness">Outline thickness</label><span class="gen-value" id="val-outline-thickness">1</span></div>
+              <input type="range" id="ctl-outline-thickness" min="0" max="3" step="0.5" value="1">
+            </div>
+          </div>
+
+          <div class="gen-group">
+            <div class="toggle-row">
+              <label for="ctl-dot">Center Dot</label>
+              <button class="switch" id="ctl-dot" type="button" role="switch" aria-checked="false" aria-label="Toggle center dot"></button>
+            </div>
+          </div>
+
+          <div class="gen-group">
+            <div class="gen-label-row"><label for="ctl-style">Style</label></div>
+            <select id="ctl-style">
+              <option value="2">Classic</option>
+              <option value="4" selected>Classic Static</option>
+              <option value="5">Legacy Static</option>
+            </select>
+          </div>
+
+          <div class="gen-actions">
+            <button class="btn btn-ghost" id="btn-reset" type="button">Reset</button>
+            <button class="btn btn-ghost" id="btn-randomize" type="button">Randomize</button>
+            <button class="btn btn-primary btn-block-full" id="btn-copy-settings" type="button">Copy Settings</button>
+            <button class="btn btn-secondary btn-block-full" id="btn-share-url" type="button">Share URL</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-disclaimer">Crosshair and settings data on AIMVAULT is community-tracked for demonstration purposes and is not verified against any player's current or official configuration.</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p>CS2 crosshairs, pro settings, and gaming tools — built for players who want to tune their setup, not guess at it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="crosshairs.html">Crosshair Database</a>
+        <a href="generator.html">Crosshair Generator</a>
+        <a href="pro-settings.html">Pro Settings</a>
+        <a href="tools.html">Gaming Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="guides.html">All Guides</a>
+        <a href="guide.html?slug=how-cs2-crosshair-gap-works">How Crosshair Gap Works</a>
+      </div>
+      <div class="footer-col">
+        <h4>AIMVAULT</h4>
+        <span>aimvaultcs.online</span>
+        <span>Not affiliated with Valve Corp.</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="footer-year"></span> AIMVAULT. All rights reserved.</span>
+      <span>CS2 and Counter-Strike are trademarks of Valve Corporation.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script src="generator.js"></script>
+</body>
+</html>

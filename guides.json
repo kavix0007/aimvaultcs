@@ -1,0 +1,94 @@
+{
+  "guides": [
+    {
+      "slug": "best-cs2-crosshair-settings",
+      "title": "Best CS2 Crosshair Settings",
+      "excerpt": "What separates a crosshair that helps your aim from one that just looks good — and how to find your own baseline.",
+      "dateAdded": "2025-09-01",
+      "readTime": "6 min read",
+      "body": [
+        { "type": "p", "text": "There is no single 'best' CS2 crosshair. What works for a low-sensitivity AWPer will feel wrong for a high-sensitivity entry fragger. The goal isn't to copy a pro's exact numbers — it's to understand what each setting changes, then tune from there." },
+        { "type": "h2", "text": "Start from visibility, not style" },
+        { "type": "p", "text": "A crosshair only helps if you can find it instantly, on every map, against every background. Before touching color or size, sit in a few common angles on de_mirage or de_inferno and check whether your crosshair disappears into smoke, sand, or foliage. If it does, that's the first thing to fix." },
+        { "type": "h2", "text": "Size and thickness affect precision differently" },
+        { "type": "p", "text": "A smaller, thinner crosshair gives a cleaner view of the head hitbox at long range, which is why many AWPers run tight, low-size crosshairs. A slightly larger crosshair with more thickness is easier to track with at close range during fast spray transfers, which is why entry fraggers often size up a little." },
+        { "type": "h2", "text": "Gap changes how it reads at different ranges" },
+        { "type": "p", "text": "A negative gap pulls the crosshair lines in tight around the center, which many players find cleaner for holding angles. A positive gap spreads the lines outward, which some players use as a rough spray-pattern reference. Try both for a session before deciding — it's a bigger adjustment than it looks on paper." },
+        { "type": "h2", "text": "Use the generator to iterate" },
+        { "type": "p", "text": "The fastest way to find a setup that fits you is to change one variable at a time inside a live preview, rather than pasting a pro's full config and hoping it works. Our Crosshair Generator lets you adjust color, size, gap, thickness, outline, and the center dot independently, then copy the finished console commands straight into CS2." }
+      ]
+    },
+    {
+      "slug": "how-to-copy-a-cs2-crosshair",
+      "title": "How to Copy a CS2 Crosshair",
+      "excerpt": "The console commands behind any crosshair, and exactly where to paste them.",
+      "dateAdded": "2025-09-08",
+      "readTime": "4 min read",
+      "body": [
+        { "type": "p", "text": "Every crosshair on AIMVAULT is built from the same set of CS2 console variables (cvars). Copying one means pasting a short block of commands into your developer console — no third-party tools required." },
+        { "type": "h2", "text": "Step 1: Enable the developer console" },
+        { "type": "p", "text": "In CS2, open Settings > Game, and set 'Enable Developer Console' to Yes. You can then open the console in-game with the tilde key (~) by default." },
+        { "type": "h2", "text": "Step 2: Copy the command block" },
+        { "type": "p", "text": "On any crosshair's detail page, press 'Copy Crosshair'. This copies a multi-line block of cl_crosshair commands to your clipboard, generated live from that crosshair's settings." },
+        { "type": "h2", "text": "Step 3: Paste and confirm" },
+        { "type": "p", "text": "Open your console, paste the block, and press Enter. Every line runs as its own command, and your crosshair updates immediately. There's no need to rebind anything or restart the game." },
+        { "type": "h2", "text": "Making it permanent" },
+        { "type": "p", "text": "Console changes made this way persist for your current install but can be overwritten if you reset your settings. For a setup you never want to lose, add the same command block to your autoexec.cfg file inside your CS2 cfg folder." }
+      ]
+    },
+    {
+      "slug": "how-cs2-crosshair-gap-works",
+      "title": "How CS2 Crosshair Gap Works",
+      "excerpt": "Gap is one of the most misunderstood crosshair settings. Here's what the number actually controls.",
+      "dateAdded": "2025-09-15",
+      "readTime": "5 min read",
+      "body": [
+        { "type": "p", "text": "The gap setting (cl_crosshairgap) controls the distance between the center of your screen and where each crosshair line begins. It's measured in game units, and it can be negative, zero, or positive." },
+        { "type": "h2", "text": "Negative gap" },
+        { "type": "p", "text": "A negative value pulls the lines inward, sometimes far enough that they overlap at the center. This is the most common choice among competitive players because it keeps the crosshair compact and easy to hold precisely over a target." },
+        { "type": "h2", "text": "Positive gap" },
+        { "type": "p", "text": "A positive value pushes the lines outward, opening a visible gap in the middle. Some players use this as a loose visual reference for spray control, since the open center leaves the target itself unobstructed." },
+        { "type": "h2", "text": "Gap and thickness work together" },
+        { "type": "p", "text": "A tight gap with thick lines can look cluttered, while a wide gap with thin lines can be hard to track quickly. If your crosshair feels 'off' after copying someone else's settings, try adjusting gap by one or two units before changing anything else — it has an outsized effect on how the whole crosshair reads." },
+        { "type": "h2", "text": "Try it live" },
+        { "type": "p", "text": "Because gap is easy to misjudge from numbers alone, the fastest way to understand it is to drag the gap slider in our Crosshair Generator and watch the live preview update in real time." }
+      ]
+    },
+    {
+      "slug": "best-crosshair-colors-in-cs2",
+      "title": "Best Crosshair Colors in CS2",
+      "excerpt": "Color is a contrast problem, not a taste problem. Here's how to pick one that stays visible.",
+      "dateAdded": "2025-09-22",
+      "readTime": "4 min read",
+      "body": [
+        { "type": "p", "text": "CS2 maps use a lot of warm, desaturated tones — sand, concrete, wood, and smoke. That's why cool, saturated colors tend to stand out best against most competitive maps." },
+        { "type": "h2", "text": "Cyan and green are the safest defaults" },
+        { "type": "p", "text": "Cyan and bright green sit far from the orange-and-brown palette of most CS2 environments, which is why they're the most common crosshair colors among professional players. They also tend to stay visible against enemy models regardless of skin or team color." },
+        { "type": "h2", "text": "White and pink work well as high-contrast alternatives" },
+        { "type": "p", "text": "White reads clearly against dark corners and shadows but can wash out against bright sky textures or flashbangs. Pink and magenta are less common but offer strong contrast on maps with heavy green foliage, like de_overpass or de_nuke's yard." },
+        { "type": "h2", "text": "Avoid colors close to enemy or map textures" },
+        { "type": "p", "text": "Red can be harder to track against blood effects and certain team-colored models, and yellow can blend into sandstone-heavy maps like de_dust2 or de_ancient. If you play those maps often, it's worth testing your crosshair color directly on them rather than in an empty server." },
+        { "type": "h2", "text": "Use 'use alpha' for a static intensity" },
+        { "type": "p", "text": "Enabling cl_crosshairusealpha and setting a fixed alpha value keeps your crosshair's opacity consistent regardless of background, which many players find easier to track than a fully opaque crosshair that seems to change brightness on different surfaces." }
+      ]
+    },
+    {
+      "slug": "how-professional-players-choose-crosshairs",
+      "title": "How Professional Players Choose Crosshairs",
+      "excerpt": "What pros actually optimize for when they land on a final crosshair, based on publicly discussed habits.",
+      "dateAdded": "2025-09-29",
+      "readTime": "5 min read",
+      "body": [
+        { "type": "p", "text": "Professional players spend hundreds of hours in-game, so their crosshair choices tend to be shaped by repetition and specific role demands rather than aesthetics." },
+        { "type": "h2", "text": "Role shapes the starting point" },
+        { "type": "p", "text": "AWPers, who take fewer but higher-stakes shots at longer range, generally favor smaller, thinner crosshairs that don't obscure a distant head hitbox. Riflers, who spray and track more often at closer range, tend toward slightly larger, more visible setups that are easier to follow during fast movement." },
+        { "type": "h2", "text": "Consistency matters more than any single setting" },
+        { "type": "p", "text": "Most players who have played for years rarely change their crosshair drastically. The specific numbers matter less than muscle memory built from thousands of hours holding the same visual reference." },
+        { "type": "h2", "text": "Outline and static styles are common for reliability" },
+        { "type": "p", "text": "A dark outline keeps the crosshair visible against both bright and dark backgrounds without needing multiple color profiles. A static crosshair style (rather than one with dynamic movement or bloom during shooting or running) keeps the reference point predictable in every situation." },
+        { "type": "h2", "text": "Treat any published pro settings as a starting point" },
+        { "type": "p", "text": "Publicly shared pro configurations can be outdated, misattributed, or simply personal preference that doesn't transfer to your own sensitivity and monitor setup. The most reliable approach is to try a setting for a full session before deciding whether to keep it — which is exactly what our Crosshair Generator and database are built for." }
+      ]
+    }
+  ]
+}

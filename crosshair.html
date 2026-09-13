@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Crosshair | AIMVAULT</title>
+<meta name="description" id="page-description" content="View CS2 crosshair settings and copy the console commands into your game.">
+<link rel="canonical" id="page-canonical" href="https://aimvaultcs.online/crosshair.html">
+<meta property="og:type" content="website">
+<meta property="og:title" id="og-title" content="Crosshair | AIMVAULT">
+<meta property="og:description" id="og-description" content="View CS2 crosshair settings and copy the console commands into your game.">
+<meta property="og:image" content="https://aimvaultcs.online/assets/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#15181d">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="AIMVAULT home">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 2L36 10V22C36 30.8 29.2 37.6 20 39C10.8 37.6 4 30.8 4 22V10L20 2Z" fill="url(#g1)"/>
+        <path d="M20 11V16M20 24V29M11 20H16M24 20H29" stroke="#0d1014" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="2.4" fill="#0d1014"/>
+        <defs><linearGradient id="g1" x1="4" y1="2" x2="36" y2="39" gradientUnits="userSpaceOnUse"><stop stop-color="#e5a400"/><stop offset="1" stop-color="#4b8cff"/></linearGradient></defs>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">AIM<span>VAULT</span></span>
+        <span class="brand-tagline">CS2 Crosshairs &amp; Pro Settings</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <a href="index.html" data-page="index.html">Home</a>
+      <a href="crosshairs.html" data-page="crosshairs.html">Crosshairs</a>
+      <a href="generator.html" data-page="generator.html">Generator</a>
+      <a href="pro-settings.html" data-page="pro-settings.html">Pro Settings</a>
+      <a href="tools.html" data-page="tools.html">Gaming Tools</a>
+      <a href="guides.html" data-page="guides.html">Guides</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm" href="generator.html">Open Generator</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb" id="breadcrumbs" style="padding-top:20px;">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="crosshairs.html">Crosshairs</a><span class="sep">/</span>
+      <span class="current" id="breadcrumb-current">…</span>
+    </nav>
+  </div>
+
+  <div id="detail-root"></div>
+
+  <div class="container" id="not-found" hidden>
+    <div class="empty-state">
+      <h3>Crosshair not found</h3>
+      <p>That crosshair might have been renamed or removed. Try browsing the full database instead.</p>
+      <div style="margin-top:16px;"><a class="btn btn-primary btn-sm" href="crosshairs.html">Browse Crosshairs</a></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-disclaimer">Crosshair and settings data on AIMVAULT is community-tracked for demonstration purposes and is not verified against any player's current or official configuration.</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p>CS2 crosshairs, pro settings, and gaming tools — built for players who want to tune their setup, not guess at it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="crosshairs.html">Crosshair Database</a>
+        <a href="generator.html">Crosshair Generator</a>
+        <a href="pro-settings.html">Pro Settings</a>
+        <a href="tools.html">Gaming Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="guides.html">All Guides</a>
+        <a href="guide.html?slug=how-to-copy-a-cs2-crosshair">How to Copy a Crosshair</a>
+      </div>
+      <div class="footer-col">
+        <h4>AIMVAULT</h4>
+        <span>aimvaultcs.online</span>
+        <span>Not affiliated with Valve Corp.</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="footer-year"></span> AIMVAULT. All rights reserved.</span>
+      <span>CS2 and Counter-Strike are trademarks of Valve Corporation.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+(async function () {
+  const A = window.AIMVAULT;
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+
+  const json = await A.fetchJSON('data/crosshairs.json');
+  const data = (json && json.crosshairs) || [];
+  const entry = data.find((c) => c.id === id);
+
+  if (!entry) {
+    document.getElementById('not-found').hidden = false;
+    document.getElementById('breadcrumb-current').textContent = 'Not found';
+    return;
+  }
+
+  // SEO: update title/description/canonical/OG dynamically for this crosshair
+  const title = `${entry.name} CS2 Crosshair Settings — Color, Size, Gap & Command | AIMVAULT`;
+  const desc = `Copy ${entry.name}'s ${entry.role.toLowerCase()} crosshair from ${entry.team}: color, size, gap, thickness, outline and the ready-to-paste CS2 console command.`;
+  document.getElementById('page-title').textContent = title;
+  document.getElementById('page-description').setAttribute('content', desc);
+  document.getElementById('og-title').setAttribute('content', title);
+  document.getElementById('og-description').setAttribute('content', desc);
+  document.getElementById('page-canonical').setAttribute('href', `https://aimvaultcs.online/crosshair.html?id=${entry.id}`);
+  document.getElementById('breadcrumb-current').textContent = entry.name;
+
+  const cfg = { color: entry.color, size: entry.size, gap: entry.gap, thickness: entry.thickness, outline: entry.outline, outlineThickness: entry.outlineThickness, dot: entry.dot, style: entry.style };
+  const commandText = A.generateCommandText(cfg);
+
+  const root = document.getElementById('detail-root');
+
+  const bgOptions = ['grid', 'dust', 'dark', 'smoke', 'mirage'];
+  const bgLabels = { grid: 'Range', dust: 'Dust', dark: 'Dark', smoke: 'Smoke', mirage: 'Mirage' };
+  const bgShort = { grid: 'Rg', dust: 'Du', dark: 'Dk', smoke: 'Sm', mirage: 'Mi' };
+
+  const settingsRows = [
+    ['Color', null, entry.color],
+    ['Size', null, entry.size],
+    ['Gap', null, entry.gap],
+    ['Thickness', null, entry.thickness],
+    ['Outline', null, entry.outline ? `Yes (${entry.outlineThickness})` : 'No'],
+    ['Center Dot', null, entry.dot ? 'Yes' : 'No'],
+    ['Style', null, entry.style]
+  ];
+
+  const header = document.createElement('div');
+  header.className = 'detail-header';
+  header.innerHTML = `<div class="container"></div>`;
+  const headerInner = header.querySelector('.container');
+
+  const heroWrap = A.el('div', { class: 'detail-hero' });
+
+  const stageWrap = A.el('div', { class: 'detail-stage-wrap' }, [
+    A.el('div', { class: 'detail-stage preview-stage', id: 'detail-stage', 'data-bg': 'grid' }, [
+      A.el('canvas', { id: 'detail-canvas', 'data-crosshair': JSON.stringify(cfg) })
+    ]),
+    A.el('div', { class: 'detail-bg-toggle' }, bgOptions.map((bg) =>
+      A.el('button', {
+        type: 'button', class: 'bg-swatch' + (bg === 'grid' ? ' is-active' : ''), title: bgLabels[bg],
+        onclick: (e) => {
+          document.getElementById('detail-stage').setAttribute('data-bg', bg);
+          document.querySelectorAll('.detail-bg-toggle button').forEach((b) => b.classList.remove('is-active'));
+          e.currentTarget.classList.add('is-active');
+        }
+      }, [bgShort[bg]])
+    ))
+  ]);
+
+  const infoCol = A.el('div', {}, [
+    A.el('div', { class: 'detail-title-row' }, [
+      A.el('h1', {}, [entry.name]),
+      A.el('span', { class: 'verify-badge' }, [entry.verified ? 'Verified' : 'Community example']),
+      A.el('span', { class: 'xh-role-tag' }, [entry.role])
+    ]),
+    A.el('p', { class: 'detail-meta-line' }, [`${entry.team} · Added ${A.timeAgo(entry.dateAdded)}`]),
+    (() => {
+      const table = document.createElement('table');
+      table.className = 'settings-table';
+      settingsRows.forEach(([label, _, value]) => {
+        const tr = document.createElement('tr');
+        const swatch = label === 'Color' ? `<span class="swatch" style="background:${A.CROSSHAIR_COLORS[entry.color]}"></span>` : '';
+        tr.innerHTML = `<td>${A.escapeHTML(label)}</td><td>${swatch}${A.escapeHTML(String(value))}</td>`;
+        table.appendChild(tr);
+      });
+      return table;
+    })(),
+    A.el('h3', { style: 'margin-top:8px;' }, ['CS2 Console Command']),
+    A.el('pre', { class: 'command-block', id: 'command-block' }, [commandText]),
+    A.el('div', { class: 'detail-actions' }, [
+      A.el('button', {
+        class: 'btn btn-primary', type: 'button', id: 'copy-crosshair-btn',
+        onclick: async () => {
+          const ok = await A.copyText(commandText);
+          if (ok) {
+            const newCount = await A.CopyCounter.increment(entry.id, entry.copies);
+            document.getElementById('copy-count-value').textContent = A.formatCount(newCount);
+            A.showToast(`${entry.name}'s crosshair copied to clipboard`);
+          } else {
+            A.showToast('Could not copy — select the command block manually');
+          }
+        }
+      }, ['Copy Crosshair']),
+      A.el('a', { class: 'btn btn-secondary', href: 'generator.html?' + new URLSearchParams({
+        color: entry.color, size: entry.size, gap: entry.gap, thickness: entry.thickness,
+        outline: entry.outline ? 1 : 0, ot: entry.outlineThickness, dot: entry.dot ? 1 : 0, style: entry.style
+      }).toString() }, ['Edit in Generator'])
+    ]),
+    A.el('p', { class: 'copy-count-line' }, ['Copied ', A.el('strong', { id: 'copy-count-value' }, ['—']), ' times by the community']),
+    A.el('div', { class: 'disclaimer-box' }, [
+      A.el('span', { html: '<svg viewBox="0 0 20 20" fill="none"><path d="M10 6.5v4M10 13.5h.01M18 10a8 8 0 11-16 0 8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6"/></svg>' }),
+      A.el('span', {}, [`This is a community-tracked example setup for ${entry.name}, not a confirmed copy of their current live configuration. Use it as a reference point, then adjust in the `,
+        A.el('a', { href: 'generator.html', style: 'color:var(--accent-2)' }, ['generator']), ' to fit your own sensitivity and monitor.'])
+    ])
+  ]);
+
+  heroWrap.appendChild(stageWrap);
+  heroWrap.appendChild(infoCol);
+  headerInner.appendChild(heroWrap);
+  root.appendChild(header);
+
+  A.drawCrosshair(document.getElementById('detail-canvas'), cfg);
+  A.CopyCounter.get(entry.id, entry.copies).then((c) => {
+    document.getElementById('copy-count-value').textContent = A.formatCount(c);
+  });
+
+  // Related crosshairs: same role, excluding self
+  const related = data.filter((c) => c.id !== entry.id && c.role === entry.role).slice(0, 6);
+  if (related.length) {
+    const relatedSection = A.el('section', { class: 'section section-alt' }, [
+      A.el('div', { class: 'container' }, [
+        A.el('h2', {}, ['Related Crosshairs']),
+        A.el('div', { class: 'card-grid', id: 'related-grid' })
+      ])
+    ]);
+    root.appendChild(relatedSection);
+    const relatedGrid = relatedSection.querySelector('#related-grid');
+    related.forEach((r) => relatedGrid.appendChild(A.createCrosshairCard(r)));
+  }
+})();
+</script>
+</body>
+</html>
