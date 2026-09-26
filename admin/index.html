@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AimVaultCS Admin</title><meta name="robots" content="noindex,nofollow"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/assets/css/pages.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/assets/js/supabase-config.js"></script></head><body data-admin><header><div class="wrap nav"><a class="logo" href="/"><span class="logo-mark">⌁</span>Aim<em>VaultCS</em></a><nav class="navlinks"><a href="/">Site</a><a class="active" href="/admin/">Admin</a></nav></div></header><main class="admin-wrap"><div class="hero" style="padding-top:24px"><div class="hero-inner"><div class="eyebrow">Private dashboard</div><h1>AimVaultCS Admin</h1><p>CS2 crosshair editor, published library manager and static player-page editor.</p></div></div>
+<section id="loginPanel" class="panel admin-panel"><h2>Admin login</h2><div class="admin-form"><div class="field"><label>Email</label><input id="loginEmail" type="email" autocomplete="username"></div><div class="field"><label>Password</label><input id="loginPassword" type="password" autocomplete="current-password"></div></div><div class="admin-actions"><button class="btn btn-red" id="loginBtn">Sign in</button><span id="loginStatus" class="status">Not signed in</span></div></section>
+<section id="dashboard" class="hidden"><div class="admin-tabs">
+<button class="admin-tab active" data-tab="crosshair">Crosshair Editor</button>
+<button class="admin-tab" data-tab="players">Player Pages</button>
+<button class="admin-tab" data-tab="pro-index">Pro Players Page</button>
+<button class="admin-tab" data-tab="github">GitHub Settings</button>
+</div>
+
+<div id="tab-crosshair" class="admin-grid">
+<div class="panel admin-panel"><h2>CS2 Crosshair Editor</h2>
+<form id="crosshairForm" class="admin-form"><input type="hidden" id="chId">
+<div class="field"><label>Name</label><input id="chName" required></div>
+<div class="field"><label>Player (optional)</label><input id="chPlayer" placeholder="donk, s1mple…"></div>
+<div class="field full"><label>CS2 Share Code / Configuration</label><input id="chCode" placeholder="CSGO-xxxxx-xxxxx-xxxxx-xxxxx-xxxxx or CS2 console commands"></div>
+<div class="field"><label>Preview image URL (optional)</label><input id="chImage"></div>
+<div class="field full"><label>Categories</label><div id="categoryChecks" class="checks"></div></div>
+<div class="field full"><label>Tags (comma separated)</label><input id="chTags"></div>
+<div class="field full"><div class="checks"><label class="check"><input id="chPublished" type="checkbox" checked> Published</label></div><div class="status" style="margin-top:8px">One fixed background image is used automatically for every crosshair preview. There is no per-crosshair background field.</div></div>
+</form>
+<div class="admin-actions"><button type="button" class="btn btn-red" id="saveCrosshair">Save crosshair</button><button type="button" class="btn btn-dark" id="newCrosshair">New</button><button type="button" class="btn btn-dark" id="generateConfig">Generate default CS2 config</button></div>
+<textarea id="configOutput" class="code-output" readonly placeholder="Generated CS2 console configuration will appear here..."></textarea>
+<div id="chStatus" class="status" style="margin-top:10px">Ready.</div></div>
+
+<div class="panel admin-panel"><h2>Live preview</h2>
+<div id="previewStage" class="preview-stage"><div id="liveCross" class="cs2-cross" style="--cross:#66c0f4;--len:5px;--gap:4px;--thick:2px;--dot:0px;--outline:0px"><i class="top"></i><i class="bottom"></i><i class="left"></i><i class="right"></i><i class="dot"></i></div></div>
+<div class="live-code"><div class="code-label">Live CS2 code</div><code id="liveCode">Enter a CS2 share code or configuration above.</code><button type="button" class="btn btn-red" id="copyLiveCode">⧉ Copy code</button></div>
+<h2 style="margin-top:18px">Saved crosshairs</h2><div id="crosshairList" class="admin-list"></div></div></div>
+
+<div id="tab-players" class="hidden"><div class="admin-grid">
+<div class="panel admin-panel"><h2>Detected static player pages</h2><p class="intro-copy">Create or edit player pages yourself in GitHub. The scanner detects existing folders containing <code>index.html</code> with a <code>window.PLAYER</code> block. The editor only updates an existing page; it never creates a player page for you.</p><button class="btn btn-red" id="scanPlayers">Scan GitHub repository</button><div id="playerList" class="admin-list" style="margin-top:14px"></div></div>
+<div class="panel admin-panel"><h2>Edit detected player page</h2>
+<div class="admin-form"><input type="hidden" id="playerPath"><input type="hidden" id="playerSha">
+<div class="field"><label>Name</label><input id="plName"></div><div class="field"><label>Real name</label><input id="plReal"></div>
+<div class="field"><label>Slug</label><input id="plSlug"></div><div class="field"><label>Team</label><input id="plTeam"></div>
+<div class="field"><label>Country / region</label><input id="plCountry"></div><div class="field"><label>Role</label><input id="plRole"></div>
+<div class="field full"><label>Introduction</label><textarea id="plIntro"></textarea></div>
+<div class="field"><label>CS2 share code</label><input id="plCode"></div><div class="field"><label>Player image URL</label><input id="plImage"></div>
+<div class="field"><label>Crosshair image URL</label><input id="plCrossImage"></div><div class="field"><label>Verified snapshot</label><input id="plVerified"></div>
+<div class="field full"><label>Crosshair categories</label><div id="playerCategoryChecks" class="checks"></div></div>
+<div class="field full"><label>Crosshair settings JSON</label><textarea id="plSettings" placeholder='{"color":"Green","size":"1","gap":"-4","thickness":"1","centerDot":"Off","outline":"Off","alpha":"255"}'></textarea></div>
+<div class="field"><label>SEO title</label><input id="plSeoTitle"></div><div class="field"><label>SEO description</label><textarea id="plSeoDescription"></textarea></div>
+</div><div class="admin-actions"><button class="btn btn-red" id="savePlayer">Save player page</button><button class="btn btn-dark" id="downloadPlayer">Download edited HTML</button></div><div id="playerStatus" class="status" style="margin-top:10px">No page selected.</div></div></div></div>
+
+<div id="tab-pro-index" class="hidden"><div class="admin-grid">
+<div class="panel admin-panel"><h2>Edit Pro Players Main Page</h2>
+<p class="intro-copy">Edit the public <code>/pro-players/</code> page without editing HTML manually. This updates the existing GitHub page only; it does not create player pages.</p>
+<div class="admin-form">
+<div class="field"><label>Page H1</label><input id="proIndexH1"></div>
+<div class="field full"><label>Page introduction</label><textarea id="proIndexIntro"></textarea></div>
+<div class="field"><label>SEO title</label><input id="proIndexSeoTitle"></div>
+<div class="field"><label>SEO description</label><textarea id="proIndexSeoDescription"></textarea></div>
+<div class="field full"><label>Players shown on the main page</label><div id="proIndexPlayers" class="admin-list"></div></div>
+</div>
+<div class="admin-actions"><button type="button" class="btn btn-red" id="loadProIndex">Load Pro Players Page</button><button type="button" class="btn btn-red" id="saveProIndex">Save Pro Players Page</button><button type="button" class="btn btn-dark" id="addProIndexPlayer">Add player card</button></div>
+<div id="proIndexStatus" class="status" style="margin-top:10px">Not loaded.</div></div>
+<div class="panel admin-panel"><h2>Player card editor</h2><p class="intro-copy">Each card links to an existing static player page such as <code>/donk/</code>. Add only real pages that exist in your repository.</p><div id="proIndexHelp" class="status">Load the page to begin.</div></div>
+</div></div>
+
+<div id="tab-github" class="hidden"><div class="panel admin-panel"><h2>GitHub repository connection</h2><p class="intro-copy">Use a fine-grained GitHub token limited to this repository with Contents: Read and write. The token stays in this browser only and is never committed to the site.</p>
+<div class="admin-form"><div class="field"><label>Owner</label><input id="ghOwner" placeholder="your-github-user"></div><div class="field"><label>Repository</label><input id="ghRepo" placeholder="AimVaultCS"></div><div class="field"><label>Branch</label><input id="ghBranch" value="main"></div><div class="field"><label>GitHub token</label><input id="ghToken" type="password" placeholder="github_pat_…"></div></div>
+<div class="admin-actions"><button class="btn btn-red" id="saveGh">Save settings in this browser</button><button class="btn btn-dark" id="clearGh">Clear token</button></div><div id="ghStatus" class="status" style="margin-top:10px">Not connected.</div></div></div>
+</section></section></main><script src="/assets/js/admin.js" defer></script><script src="/assets/js/pro-index.js" defer></script></body></html>
